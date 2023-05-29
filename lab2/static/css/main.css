@@ -1,0 +1,32 @@
+.list-wrapper {
+  margin-top: 20px;
+}
+
+.list-icon {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.update-form{
+  display: none;
+  background-color: rgb(242, 242, 242);
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+#btn-update, #btn-cancel{
+  margin-top: 10px;
+}
+
+select{
+  width: 150px;
+}
+
+form{
+  margin-top: 10px;
+  background-color: #eae6fa;
+  border: black 1px solid;
+  padding: 5px;
+  border-radius: 20px;
+}

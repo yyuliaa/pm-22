@@ -1,0 +1,28 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='train-add-form' name='train-add-form' class='form-horizontal' method="POST" action='')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='name') Name
+        div(class='col-md-9')
+          input(id='name' name='name' value=$fn.getPropOrDefault(newTrain, 'name') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='route') Route
+        div(class='col-md-9')
+          input(id='route' name='route' value=$fn.getPropOrDefault(newTrain, 'route') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='number') Number
+        div(class='col-md-9')
+          input(id='number' name='number' value=$fn.getPropOrDefault(newTrain, 'number') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='places') Places
+        div(class='col-md-9')
+          input(id='places' name='places' value=$fn.getPropOrDefault(newTrain, 'places') class='form-control')
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Create

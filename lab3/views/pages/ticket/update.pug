@@ -1,0 +1,45 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='ticket-edit-form' name='ticket-edit-form' class='form-horizontal' method="POST" action='')
+      input(id='id' name='id' value=$fn.getPropOrDefault(newTicket, 'id', ticket.id) type='hidden')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='number') Number
+        div(class='col-md-9')
+          input(id='number' name='number' value=$fn.getPropOrDefault(newTicket, 'number', ticket.number) class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='passenger_id') Passenger
+        div(class='col-md-9')
+          <select id='passenger_id' name='passenger_id' class='form-control'>
+          each passenger in passengers
+            option(value=passenger.id selected=(passenger.id == $fn.getPropOrDefault(newTicket, 'passenger', ticket.passenger))) Name:#{passenger.name}; Surname:#{passenger.surname};  Passport number:#{passenger.passport_number};
+          </select>
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='train_id') Train
+        div(class='col-md-9')
+          <select id='train_id' name='train_id' class='form-control'>
+          each train in trains
+            option(value=train.id selected=(train.id == $fn.getPropOrDefault(newTicket, 'train', ticket.train))) Name:#{train.name}; Number:#{train.number}; Route:#{train.route};
+          </select>
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='price') Price
+        div(class='col-md-9')
+          input(id='price' name='price' value=$fn.getPropOrDefault(newTicket, 'price', ticket.price) class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='place') Place
+        div(class='col-md-9')
+          input(id='place' name='place' value=$fn.getPropOrDefault(newTicket, 'place', ticket.place) class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='date') Date
+        div(class='col-md-9')
+          input(id='date' name='date' value=$fn.getPropOrDefault(newTicket, 'date', ticket.date) class='form-control')
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Update

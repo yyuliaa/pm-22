@@ -1,0 +1,16 @@
+extends ../../layout
+
+block content
+    div(class='col-md-6')
+        form(id='report-routes_without_sold_tickets-form' name='report-routes_without_sold_tickets-form' class='form-horizontal' method="GET" action='')
+            div(class='form-group')
+                div(class='col-md-3')
+                    label(for='route') Routes
+                div(class='col-md-9')
+                    <select id='route' name='route' class='form-control'>
+                    each route in routes
+                        option() Route: #{route}
+                    </select>
+            div(class='form-group')
+                div(class='col-md-12')
+                    button(type='submit' class='btn btn-primary') Create

@@ -1,0 +1,30 @@
+extends ../../layout
+
+block content
+  h3 Ticket List
+
+  a(href='/ticket/add' class="btn btn-default") Add
+
+  table(class="table")
+    thead
+      tr
+        th ID
+        th Number
+        th Passenger
+        th Train
+        th Price
+        th Place
+        th Date
+    tbody
+      each ticket in tickets
+        tr
+          td #{ticket.id}
+          td #{ticket.number}
+          td #{ticket.passenger}
+          td #{ticket.train}
+          td #{ticket.price}
+          td #{ticket.place}
+          td #{ticket.date}
+          td
+            a(href=`/ticket/edit/${ticket.id}` class="btn btn-default") Edit
+            a(href=`/ticket/remove/${ticket.id}` class="btn btn-default") Delete

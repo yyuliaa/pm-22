@@ -1,0 +1,13 @@
+extends ../../layout
+
+block content
+    div(class='col-md-6')
+        form(id='report-most_popular_route-form' name='report-most_popular_route-form' class='form-horizontal' method="GET" action='')
+            div(class='form-group')
+                div(class='col-md-3')
+                    label(for='route') Routes
+                div(class='col-md-9')
+                    <select id='route' name='route' class='form-control'>
+                    each route in routes
+                        option() Route:#{route}
+                    </select>

@@ -1,0 +1,23 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='passenger-add-form' name='passenger-add-form' class='form-horizontal' method="POST" action='')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='name') Name
+        div(class='col-md-9')
+          input(id='name' name='name' value=$fn.getPropOrDefault(newPassenger, 'name') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='surname') Surname
+        div(class='col-md-9')
+          input(id='surname' name='surname' value=$fn.getPropOrDefault(newPassenger, 'surname') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='passport_number') Passport number
+        div(class='col-md-9')
+          input(id='passport_number' name='passport_number' value=$fn.getPropOrDefault(newPassenger, 'passport_number') class='form-control')
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Create

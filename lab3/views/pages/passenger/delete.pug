@@ -1,0 +1,11 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='passenger-delete-form' name='passenger-delete-form' class='form-horizontal' method="POST" action='')
+      input(id='id' type="hidden" name='id' value=passenger.id class='form-control')
+      div(class='form-group')
+        div(class='col-md-12') Name: #{passenger.name}; Surname: #{passenger.surname}; Passport number:  #{passenger.passport_number};
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Delete

@@ -1,0 +1,24 @@
+extends ../../layout
+
+block content
+  h3 Passenger List
+
+  a(href='/passenger/add' class="btn btn-default") Add
+
+  table(class="table")
+    thead
+      tr
+        th ID
+        th Name
+        th Surname
+        th Passport number
+    tbody
+      each passenger in passengers
+        tr
+          td #{passenger.id}
+          td #{passenger.name}
+          td #{passenger.surname}
+          td #{passenger.passport_number}
+          td
+            a(href=`/passenger/edit/${passenger.id}` class="btn btn-default") Edit
+            a(href=`/passenger/remove/${passenger.id}` class="btn btn-default") Delete

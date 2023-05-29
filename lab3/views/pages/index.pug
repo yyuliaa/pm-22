@@ -1,0 +1,24 @@
+﻿extends ../layout
+
+block content
+  div(class='breadcrumb')
+    div= title
+  div.list-group
+    div.list-group-item
+      span(class='list-icon glyphicon glyphicon-briefcase')
+      a(href='/passenger/list') Passengers
+      a(href='/passenger/add')
+        span(class='list-icon glyphicon glyphicon-plus')
+    div.list-group-item
+      span(class='list-icon glyphicon glyphicon-briefcase')
+      a(href='/train/list') Trains
+      a(href='/train/add')
+        span(class='list-icon glyphicon glyphicon-plus')
+    div.list-group-item
+      span(class='list-icon glyphicon glyphicon-briefcase')
+      a(href='/ticket/list') Tickets
+      a(href='/ticket/add')
+        span(class='list-icon glyphicon glyphicon-plus')
+    div.list-group-item
+      span(class='list-icon glyphicon glyphicon-briefcase')
+      a(href='/report') Report

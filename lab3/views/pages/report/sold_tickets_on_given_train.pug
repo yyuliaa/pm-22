@@ -1,0 +1,24 @@
+extends ../../layout
+
+block content
+    div(class='col-md-6')
+        form(id='report-sold_tickets_on_given_train-form' name='report-sold_tickets_on_given_train-form' class='form-horizontal' method="GET" action='')
+            div(class='form-group')
+                div(class='col-md-3')
+                    label(for='train_id') Train
+                div(class='col-md-9')
+                    <select id='train_id' name='train_id' class='form-control'>
+                    each train in trains
+                        option(value=train.id selected=(train.id == $fn.getPropOrDefault(newTicket ,'train', 0))) Name:#{train.name}; Number:#{train.number}; Route:#{train.route};
+                    </select>
+            div(class='form-group')
+                div(class='col-md-3')
+                    label(for='ticket') Ticket
+                div(class='col-md-9')
+                    <select id='ticket' name='ticket' class='form-control'>
+                    each ticket in tickets
+                        option() Ticket №#{ticket.number}; Place #{ticket.place}; Date #{ticket.date}
+                    </select>
+            div(class='form-group')
+                div(class='col-md-12')
+                    button(type='submit' class='btn btn-primary') Create

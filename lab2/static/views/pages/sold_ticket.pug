@@ -1,0 +1,95 @@
+extends ../layout.pug
+
+block prepend styles
+    link(rel='stylesheet' href='//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css')
+
+block content
+    div(class='breadcrumb')
+        li= title
+    form(id='update-form' name='update-form update-form-hidden' class='form-inline update-form' action='')
+        div(class='form-group')
+            div(class='col-md-7')
+                label(for='update_train') New Train
+            div(class='col-md-9')
+                select(id='update_train' name='update_train')
+        div(class='form-group')
+            div(class='col-md-12')
+                button(id='btn-update' type='submit' class='btn btn-primary') Update
+        div(class='form-group')
+            div(class='col-md-12')
+                button(id='btn-cancel' type='button' class='btn btn-danger') Cancel
+
+    form(id='sold_ticket-add-form' name='sold_ticket-add-form' class='form-inline' action='')
+        div(class='form-group')
+            div(class='col-md-4')
+                label(for='passenger') Passenger
+            div(class='col-md-9')
+                select(id='passenger' name='passenger')
+        div(class='form-group')
+            div(class='col-md-4')
+                label(for='ticket') Ticket
+            div(class='col-md-9')
+                select(id='ticket' name='ticket')
+        div(class='form-group')
+            div(class='col-md-4')
+                label(for='train') Train
+            div(class='col-md-9')
+                select(id='train' name='train')
+        div(class='form-group')
+            div(class='col-md-4')
+                label(for='date') Date
+            div(class='col-md-9')
+                input(id='date' name='date' value='' type='text' class='form-control')
+        div(class='form-group')
+            div(class='col-md-12')
+                button(type='submit' class='btn btn-primary') Buy
+        div.list-wrapper
+            table(id='sold_ticket-list')
+    form(id='report-most_popular_route-form' name='sold_ticket-add-form' class='form-inline' action='')
+        div(class='form-group')
+            div(class='col-md-6')
+                label(for='m_popular_route') Most Popular Route
+            div(class='col-md-6')
+                input(id='m_popular_route' name='m_popular_route' value='' class='form-control' disabled)
+        div(class='form-group')
+            div(class='col-md-12')
+                button(type='submit' class='btn btn-primary') Find
+    form(id='report-most_profitable_route-form' name='report-most_profitable_route-form' class='form-inline' action='')
+        div(class='form-group')
+            div(class='col-md-6')
+                label(for='m_profitable_route') Most Profitable Route
+            div(class='col-md-6')
+                input(id='m_profitable_route' name='m_profitable_route' value='' class='form-control' disabled)
+        div(class='form-group')
+            div(class='col-md-12')
+                button(type='submit' class='btn btn-primary') Find
+    form(id='report-sold_tickets_by_train-form' name='report-sold_tickets_by_train-form' class='form-inline' action='')
+        div(class='form-group')
+            div(class='col-md-3 ')
+                label(for='train_for_sold_tickets') Train
+            div(class='col-md-10')
+                select(id='train_for_sold_tickets' name='train_for_sold_tickets')
+        div(class='form-group')
+            div(class='col-md-4')
+                label(for='sold_tickets_by_train') Tickets
+            div(class='col-md-10')
+                select(id='sold_tickets_by_train' name='sold_tickets_by_train')
+        div(class='form-group')
+            div(class='col-md-12')
+                button(type='submit' class='btn btn-primary') Find
+    form(id='report-routs_without_sold_tickets-form' name='report-routs_without_sold_tickets-form' class='form-inline' action='')
+        div(class='form-group')
+            div(class='col-md-3 ')
+                label(for='route') Route
+            div(class='col-md-10')
+                select(id='route' name='route')
+        div(class='form-group')
+            div(class='col-md-12')
+                button(type='submit' class='btn btn-primary') Find
+block append scripts
+    script(src='/static/js/models/sold_ticket.js')
+    script(src='/static/js/models/ticket.js')
+    script(src='/static/js/models/passenger.js')
+    script(src='/static/js/models/train.js')
+    script(src='//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+    script(src='/static/js/views/sold_ticket.js')

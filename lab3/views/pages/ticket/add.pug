@@ -1,0 +1,44 @@
+extends ../../layout
+
+block content
+  div(class='col-md-6')
+    form(id='ticket-add-form' name='ticket-add-form' class='form-horizontal' method="POST" action='')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='number') Number
+        div(class='col-md-9')
+          input(id='number' name='number' value=$fn.getPropOrDefault(newTicket, 'number') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='passenger_id') Passenger
+        div(class='col-md-9')
+          <select id='passenger_id' name='passenger_id' class='form-control'>
+          each passenger in passengers
+            option(value=passenger.id selected=(passenger.id == $fn.getPropOrDefault(newTicket, 'passenger', 0))) Name:#{passenger.name}; Surname:#{passenger.surname};  Passport number:#{passenger.passport_number};
+          </select>
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='train_id') Train
+        div(class='col-md-9')
+          <select id='train_id' name='train_id' class='form-control'>
+          each train in trains
+            option(value=train.id selected=(train.id == $fn.getPropOrDefault(newTicket, 'train', 0))) Name:#{train.name}; Number:#{train.number}; Route:#{train.route};
+          </select>
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='price') Price
+        div(class='col-md-9')
+          input(id='price' name='price' value=$fn.getPropOrDefault(newTicket, 'price') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='place') Place
+        div(class='col-md-9')
+          input(id='place' name='place' value=$fn.getPropOrDefault(newTicket, 'place') class='form-control')
+      div(class='form-group')
+        div(class='col-md-3')
+          label(for='date') Date
+        div(class='col-md-9')
+          input(id='date' name='date' value=$fn.getPropOrDefault(newTicket, 'date') class='form-control')
+      div(class='form-group')
+        div(class='col-md-12')
+          button(type='submit' class='btn btn-primary') Create
